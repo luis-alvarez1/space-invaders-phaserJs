@@ -10,8 +10,8 @@ var Gameplay = {
         game.load.image('background', 'assets/img/background.png');
         game.load.image('ship', 'assets/img/ship.png');
         game.load.image('laser', 'assets/img/laser.png');
-        game.load.image('enemy', 'assets/img/enemy2_1.png');
-        game.load.image('explosion', 'assets/img/explosionblue.png');
+        game.load.image('enemy', 'assets/img/enemy1_1.png');
+        game.load.image('explosion', 'assets/img/explosionpurple.png');
 
     },
     create: function() {
@@ -20,6 +20,10 @@ var Gameplay = {
 
         this.ship = game.add.sprite(game.width / 2, 500, 'ship');
         this.ship.anchor.setTo(0.5);
+
+        game.physics.arcade.enable(this.ship);
+        this.ship.body.collideWorldBounds = true;
+
         this.cursors = game.input.keyboard.createCursorKeys();
         this.shoot_key = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
